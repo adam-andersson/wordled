@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import Grid from './components/Grid'
 import WordledHeader from './components/WordledHeader'
-import { WORD_LENGTH } from './constants/guesses'
-import { ALPHABET, WORDS } from './constants/word-list'
+import { NUMBER_OF_GUESSES, WORD_LENGTH } from './constants/guesses'
+import { ALPHABET, SOLUTION, WORDS } from './constants/word-list'
 import { setCharAt } from './helpers/set-char-at'
 
 const App = () => {
@@ -11,6 +11,20 @@ const App = () => {
 	const [currentBoxIdx, setCurrentBoxIdx] = useState<number>(0)
 	const [guesses, setGuesses] = useState<string[]>(['peter', 'aaaaa', 'ellen'])
 	const [isInvalidGuess, setIsInvalidGuess] = useState<boolean>(false)
+	const [isGameLost, setIsGameLost] = useState<boolean>(false)
+	const [isGameWon, setIsGameWon] = useState<boolean>(false)
+
+	const checkWinLoseCondition = () => {
+		if (guesses[guesses.length - 1] === SOLUTION) {
+			setIsGameWon(true)
+			return
+		}
+		if (guesses.length === NUMBER_OF_GUESSES) {
+			setIsGameLost(true)
+		}
+	}
+
+	useEffect(() => checkWinLoseCondition(), [guesses])
 
 	const onEnterKey = () => {
 		if (isInvalidGuess) return
@@ -22,6 +36,7 @@ const App = () => {
 		} else {
 			setIsInvalidGuess(true)
 		}
+		
 	}
 
 	const onDeleteKey = () => {
@@ -65,9 +80,13 @@ const App = () => {
 			<header className="App-header">
 				<WordledHeader />
 			</header>
-			<body className="App-body">
+			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
-			</body>
+				<span style={{ marginTop: '20px' }}>
+					{isGameWon && 'Congratulations! You managed to solve the wordled.'}
+					{isGameLost && 'Unlucky! You did not manage to solve the wordled.'}
+				</span>
+			</div>
 		</div>
 	)}
 

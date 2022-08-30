@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import { SOLUTION } from '../../constants/word-list'
+import { WORD_LENGTH } from '../../constants/guesses'
 import Box from './Box'
 
 const EmptyRow: FC = () => {
 
-	const emptyBoxes = Array.from(Array(SOLUTION.length))
+	const emptyBoxes = Array.from(Array(WORD_LENGTH))
 
 	return (
 		<>
