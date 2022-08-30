@@ -6,6 +6,7 @@ import { ANSWER } from './constants/answer'
 import { NUMBER_OF_GUESSES, WORD_LENGTH } from './constants/guesses'
 import { ALPHABET, WORDS } from './constants/word-list'
 import { setCharAt } from './helpers/set-char-at'
+import Div100vh from 'react-div-100vh'
 
 const App = () => {
 	const [currentGuess, setCurrentGuess] = useState('     ')
@@ -80,22 +81,22 @@ const App = () => {
 
 
 	return (
-		<div className="App">
+		<Div100vh style={{backgroundColor: '#282c34', overflow: 'scroll'}}>
 			<header className="App-header">
 				<WordledHeader />
 			</header>
 			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
 				{(isGameWon || isGameLost) && 
-					<span style={{ marginTop: '20px'}}>
+					<span style={{ marginTop: '20px', fontSize: '15px'}}>
 						{isGameWon ? 
 							<span>Congratulations! You managed to solve the wordled.</span> : 
 							<span>Unlucky! You did not manage to solve the wordled.
-								<br />{`The correct word was: ${ANSWER.toUpperCase()}`}</span>}
+								<br />The correct word was: <b>{ANSWER.toUpperCase()}</b></span>}
 					</span>
 				}
 			</div>
-		</div>
+		</Div100vh>
 	)}
 
 export default App
