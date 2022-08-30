@@ -10,7 +10,7 @@ const App = () => {
 	const [currentGuess, setCurrentGuess] = useState('     ')
 	const [currentBoxIdx, setCurrentBoxIdx] = useState<number>(0)
 	const [guesses, setGuesses] = useState<string[]>(['peter', 'aaaaa', 'ellen'])
-	const [isInvalidGuess, setIsInvalidGuess] = useState<boolean>(true)
+	const [isInvalidGuess, setIsInvalidGuess] = useState<boolean>(false)
 
 	const onEnterKey = () => {
 		if (isInvalidGuess) return
