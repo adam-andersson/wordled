@@ -12,11 +12,11 @@ export const isCorrectWord = (word: string) => {
 }
 
 export const getGuessesStatuses = (
-	solution: string,
+	answer: string,
 	guesses: string[]
 ): { [key: string]: CharStatus } => {
 	const charObj: { [key: string]: CharStatus } = {}
-	const splitSolution = solution.split('')
+	const splitSolution = answer.split('')
 
 	guesses.forEach((word) => {
 		word.split('').forEach((letter, i) => {
@@ -38,10 +38,10 @@ export const getGuessesStatuses = (
 }
 
 export const getGuessStatuses = (
-	solution: string,
+	answer: string,
 	guess: string
 ): CharStatus[] => {
-	const splitSolution = solution.split('')
+	const splitSolution = answer.split('')
 	const splitGuess = guess.split('')
 
 	const solutionCharsUsed = splitSolution.map(() => false)

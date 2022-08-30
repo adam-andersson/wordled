@@ -1,6 +1,7 @@
 .App-header {
   display: flex;
   flex-direction: column;
+  flex: 0 1 auto;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -9,10 +10,13 @@
 .App-body {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-between;
   align-items: center;
   color: white;
   flex-grow: 1;
   width: 100%;
+  height: 80%;
 }
 
 .App-link {

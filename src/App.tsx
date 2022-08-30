@@ -7,6 +7,7 @@ import { NUMBER_OF_GUESSES, WORD_LENGTH } from './constants/guesses'
 import { ALPHABET, WORDS } from './constants/word-list'
 import { setCharAt } from './helpers/set-char-at'
 import Div100vh from 'react-div-100vh'
+import Keyboard from './components/Keyboard'
 
 const App = () => {
 	const [currentGuess, setCurrentGuess] = useState('     ')
@@ -51,7 +52,8 @@ const App = () => {
 	}
 
 	const onCharKey = (value: string) => {
-		const updatedGuess = setCharAt(currentGuess, currentBoxIdx, value)
+		const lowerCaseChar = value.toLowerCase()
+		const updatedGuess = setCharAt(currentGuess, currentBoxIdx, lowerCaseChar)
 		setCurrentGuess(updatedGuess)
 		setIsInvalidGuess(false)
 
@@ -64,9 +66,8 @@ const App = () => {
 		} else if (e.code === 'Backspace') {
 			onDeleteKey()
 		} else {
-			const key = e.key.toLowerCase()
-			if (key.length === 1 && ALPHABET.includes(key.toUpperCase())) {
-				onCharKey(key)
+			if (e.key.length === 1 && ALPHABET.includes(e.key.toUpperCase())) {
+				onCharKey(e.key)
 			}
 		}
 	}
@@ -95,6 +96,7 @@ const App = () => {
 								<br />The correct word was: <b>{ANSWER.toUpperCase()}</b></span>}
 					</span>
 				}
+				<Keyboard guesses={guesses} onEnterKey={onEnterKey} onDeleteKey={onDeleteKey} onCharKey={onCharKey}/>
 			</div>
 		</Div100vh>
 	)}
