@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wordled/static/css/main.57da1440.css",
+    "main.js": "/wordled/static/js/main.8670da31.js",
+    "index.html": "/wordled/index.html",
+    "main.57da1440.css.map": "/wordled/static/css/main.57da1440.css.map",
+    "main.8670da31.js.map": "/wordled/static/js/main.8670da31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57da1440.css",
+    "static/js/main.8670da31.js"
+  ]
+}
