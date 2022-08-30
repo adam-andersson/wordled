@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { SOLUTION } from '../../constants/word-list'
+import { ANSWER } from '../../constants/answer'
 import { getGuessStatuses } from '../../lib/word-logic'
 import Box from './Box'
 
 const FinishedRow: FC<{ guess: string }> = ({ guess }) => {
 	const splitGuess = guess.split('')
-	const guessStatuses = getGuessStatuses(SOLUTION, guess)
+	const guessStatuses = getGuessStatuses(ANSWER, guess)
 
 	return (
 		<>

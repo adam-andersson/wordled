@@ -1,21 +1,23 @@
+import { removeAllListeners } from 'process'
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Grid from './components/Grid'
 import WordledHeader from './components/WordledHeader'
+import { ANSWER } from './constants/answer'
 import { NUMBER_OF_GUESSES, WORD_LENGTH } from './constants/guesses'
-import { ALPHABET, SOLUTION, WORDS } from './constants/word-list'
+import { ALPHABET, WORDS } from './constants/word-list'
 import { setCharAt } from './helpers/set-char-at'
 
 const App = () => {
 	const [currentGuess, setCurrentGuess] = useState('     ')
 	const [currentBoxIdx, setCurrentBoxIdx] = useState<number>(0)
-	const [guesses, setGuesses] = useState<string[]>(['peter', 'aaaaa', 'ellen'])
+	const [guesses, setGuesses] = useState<string[]>([])
 	const [isInvalidGuess, setIsInvalidGuess] = useState<boolean>(false)
 	const [isGameLost, setIsGameLost] = useState<boolean>(false)
 	const [isGameWon, setIsGameWon] = useState<boolean>(false)
 
 	const checkWinLoseCondition = () => {
-		if (guesses[guesses.length - 1] === SOLUTION) {
+		if (guesses[guesses.length - 1] === ANSWER) {
 			setIsGameWon(true)
 			return
 		}
@@ -75,6 +77,7 @@ const App = () => {
 		}
 	}, [onEnterKey, onDeleteKey, onCharKey])
 
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -82,10 +85,14 @@ const App = () => {
 			</header>
 			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
-				<span style={{ marginTop: '20px' }}>
-					{isGameWon && 'Congratulations! You managed to solve the wordled.'}
-					{isGameLost && 'Unlucky! You did not manage to solve the wordled.'}
-				</span>
+				{(isGameWon || isGameLost) && 
+					<span style={{ marginTop: '20px'}}>
+						{isGameWon ? 
+							<span>Congratulations! You managed to solve the wordled.</span> : 
+							<span>Unlucky! You did not manage to solve the wordled.
+								<br />{`The correct word was: ${ANSWER.toUpperCase()}`}</span>}
+					</span>
+				}
 			</div>
 		</div>
 	)}

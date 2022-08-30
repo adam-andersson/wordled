@@ -1,4 +1,5 @@
-import { SOLUTION, WORDS } from '../constants/word-list'
+import { ANSWER } from '../constants/answer'
+import { WORDS } from '../constants/word-list'
 
 export type CharStatus = 'absent' | 'present' | 'correct'
 
@@ -7,7 +8,7 @@ export const isWordInWordList = (word: string) => {
 }
   
 export const isCorrectWord = (word: string) => {
-	return SOLUTION === word.toLowerCase()
+	return ANSWER === word.toLowerCase()
 }
 
 export const getGuessesStatuses = (

@@ -1,4 +1,3 @@
-export const SOLUTION = 'pasta'
 export const ALPHABET = [
 	'A',
 	'B',
