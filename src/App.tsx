@@ -89,7 +89,7 @@ const App = () => {
 			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
 				{(isGameWon || isGameLost) && 
-					<span style={{ marginTop: '20px', fontSize: '15px'}}>
+					<span style={{ marginTop: '15px', fontSize: '15px'}}>
 						{isGameWon ? 
 							<span>Congratulations! You managed to solve the wordled.</span> : 
 							<span>Unlucky! You did not manage to solve the wordled.
