@@ -1,4 +1,3 @@
-import { removeAllListeners } from 'process'
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Grid from './components/Grid'
@@ -58,20 +57,22 @@ const App = () => {
 		if (currentBoxIdx + 1 < WORD_LENGTH) setCurrentBoxIdx(currentBoxIdx + 1)
 	}
 
-	useEffect(() => {
-		const keyboardListener = (e: KeyboardEvent) => {
-			if (e.code === 'Enter') {
-				onEnterKey()
-			} else if (e.code === 'Backspace') {
-				onDeleteKey()
-			} else {
-				const key = e.key.toLowerCase()
-				if (key.length === 1 && ALPHABET.includes(key.toUpperCase())) {
-					onCharKey(key)
-				}
+	const keyboardListener = (e: KeyboardEvent) => {
+		if (e.code === 'Enter') {
+			onEnterKey()
+		} else if (e.code === 'Backspace') {
+			onDeleteKey()
+		} else {
+			const key = e.key.toLowerCase()
+			if (key.length === 1 && ALPHABET.includes(key.toUpperCase())) {
+				onCharKey(key)
 			}
 		}
-		window.addEventListener('keyup', keyboardListener)
+	}
+
+	useEffect(() => {
+		if (!(isGameWon || isGameLost)) window.addEventListener('keyup', keyboardListener)
+		else window.removeEventListener('keyup', keyboardListener)
 		return () => {
 			window.removeEventListener('keyup', keyboardListener)
 		}
