@@ -21,7 +21,7 @@ const KeyboardKey: FC<Props> = ({
 	)
 
 	return (
-		<button style={{minWidth: '25px', minHeight: '42px', backgroundColor, border: 'none', borderRadius: '3px', color: 'white', fontSize: '15px', textAlign: 'center', overflow: 'hidden'}} onClick={() => onClick(keyValue)}>
+		<button style={{minWidth: '30px', minHeight: '45px', backgroundColor, border: 'none', borderRadius: '3px', color: 'white', fontSize: '15px', textAlign: 'center'}} onClick={() => onClick(keyValue)}>
 			{keySymbol}
 		</button>
 	)
