@@ -82,14 +82,14 @@ const App = () => {
 
 
 	return (
-		<Div100vh style={{backgroundColor: '#282c34', overflow: 'scroll'}}>
+		<Div100vh style={{backgroundColor: '#282c34', display: 'flex', flexDirection: 'column', overflow: 'scroll'}}>
 			<header className="App-header">
-				<WordledHeader />
+				<WordledHeader />	
 			</header>
 			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
 				{(isGameWon || isGameLost) && 
-					<span style={{ marginTop: '15px', fontSize: '15px'}}>
+					<span style={{ fontSize: '15px', marginLeft: '10px', marginRight: '10px'}}>
 						{isGameWon ? 
 							<span>Congratulations! You managed to solve the wordled.</span> : 
 							<span>Unlucky! You did not manage to solve the wordled.

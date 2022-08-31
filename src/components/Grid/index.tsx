@@ -20,7 +20,7 @@ const Grid: FC<Props> = ({
 	const emptyRows = guesses.length < NUMBER_OF_GUESSES - 1 ? Array.from(Array(NUMBER_OF_GUESSES - 1 - guesses.length)) : []
 
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', gap: '0.3rem', justifyContent: 'center'}}>
+		<div style={{display: 'flex', flexDirection: 'column', gap: '1vmin', justifyContent: 'center'}}>
 			{guesses.map((guess, i) => (
 				<div style={{display: 'flex', flexDirection: 'row'}} key={i}>
 					<FinishedRow guess={guess} />

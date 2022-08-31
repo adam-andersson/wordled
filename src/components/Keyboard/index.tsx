@@ -30,8 +30,8 @@ const Keyboard: FC<Props> = ({
 	}
 
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '15px', marginBottom: '15px'}}>
-			{KEYBOARD_KEYS.map((keyboardRow) => <div style={{display:'flex', justifyContent: 'center', gap: '5px'}} key={keyboardRow.join()}>
+		<div style={{display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '20px', width: '100%'}}>
+			{KEYBOARD_KEYS.map((keyboardRow) => <div style={{display:'flex', justifyContent: 'center', gap: '5px', flexWrap: 'wrap'}} key={keyboardRow.join()}>
 				{keyboardRow.map((keyboardKey) => <KeyboardKey keyValue={keyboardKey} onClick={onKeyboardPress} keyStatus={charStatuses[keyboardKey.toLowerCase()]} key={keyboardKey}/>)}
 			</div>)}
 		</div>

@@ -13,16 +13,16 @@ const Box: FC<{
 	return (
 		<div
 			style={{
-				width: '3.5rem',
-				height: '3.5rem',
+				width: 'clamp(1.5rem, 15vmin , 3.5rem)',
+				height: 'clamp(1.5rem, 15vmin , 3.5rem)',
 				backgroundColor,
-				marginRight: '0.15rem',
-				marginLeft: '0.15rem',
+				marginRight: '0.5vmin',
+				marginLeft: '0.5vmin',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
-				borderRadius: '0.5rem',
+				borderRadius: 'clamp(0.2rem, 2vmin, 0.5rem)',
 				fontSize: '25px',
 				position: 'relative'
 			}}
