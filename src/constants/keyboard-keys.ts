@@ -3,3 +3,5 @@ export const KEYBOARD_KEYS = [
 	['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
 	['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'BACKSPACE', 'ENTER']  
 ]
+
+export const MAX_KEYBOARD_ROW_LENGTH = Math.max(...KEYBOARD_KEYS.map((row) => row.length))
