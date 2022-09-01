@@ -8,6 +8,8 @@ import { ALPHABET, WORDS } from './constants/word-list'
 import { setCharAt } from './helpers/set-char-at'
 import Div100vh from 'react-div-100vh'
 import Keyboard from './components/Keyboard'
+import { Modal } from '@mui/material'
+import WinLoseModal from './components/Modal/WinLoseModal'
 
 const App = () => {
 	const [currentGuess, setCurrentGuess] = useState('     ')
@@ -88,17 +90,11 @@ const App = () => {
 			</header>
 			<div className="App-body">
 				<Grid guesses={guesses} currentGuess={currentGuess} currentBoxIdx={currentBoxIdx} isActiveGuessInvalid={isInvalidGuess} />
-				{(isGameWon || isGameLost) && 
-					<span style={{ fontSize: '15px', marginLeft: '10px', marginRight: '10px'}}>
-						{isGameWon ? 
-							<span>Congratulations! You managed to solve the wordled.</span> : 
-							<span>Unlucky! You did not manage to solve the wordled.
-								<br />The correct word was: <b>{ANSWER.toUpperCase()}</b></span>}
-					</span>
-				}
 				<Keyboard guesses={guesses} onEnterKey={onEnterKey} onDeleteKey={onDeleteKey} onCharKey={onCharKey}/>
+			</div>
+			<div>
+				{(isGameWon || isGameLost) && (<WinLoseModal isWin={isGameWon} answer={ANSWER.toUpperCase()}></WinLoseModal>)}
 			</div>
 		</Div100vh>
 	)}
-
 export default App
