@@ -3,6 +3,7 @@ import { ANSWER } from '../../constants/answer'
 import { KEYBOARD_KEYS } from '../../constants/keyboard-keys'
 import { getGuessesStatuses } from '../../lib/word-logic'
 import KeyboardKey from './KeyboardKey'
+import './Keyboard.scss'
 
 type Props = {
     guesses: string[]
@@ -30,8 +31,8 @@ const Keyboard: FC<Props> = ({
 	}
 
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px', width: '100%'}}>
-			{KEYBOARD_KEYS.map((keyboardRow) => <div style={{display:'flex', justifyContent: 'center', gap: '6px', flexWrap: 'wrap'}} key={keyboardRow.join()}>
+		<div className="keyboard">
+			{KEYBOARD_KEYS.map((keyboardRow) => <div className="keyboard__row" key={keyboardRow.join()}>
 				{keyboardRow.map((keyboardKey) => <KeyboardKey keyValue={keyboardKey} onClick={onKeyboardPress} keyStatus={charStatuses[keyboardKey.toLowerCase()]} key={keyboardKey}/>)}
 			</div>)}
 		</div>

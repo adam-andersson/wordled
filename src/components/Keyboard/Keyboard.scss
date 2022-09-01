@@ -1,5 +1,20 @@
 $breakpoint-tablet: 500px;
 
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.4em;
+    margin-bottom: 20px;
+}
+
+.keyboard__row {
+    display: flex; 
+    justify-content: center;
+    gap: 0.4em;
+    flex-wrap: wrap;
+}
+
 .keyboard__button {
     @media (min-width: $breakpoint-tablet) {
         width: 1.5em;
