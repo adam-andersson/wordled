@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/wordled/static/css/main.924f7e93.css",
-    "main.js": "/wordled/static/js/main.f758d5a9.js",
+    "main.css": "/wordled/static/css/main.4f271eb3.css",
+    "main.js": "/wordled/static/js/main.450a325d.js",
     "index.html": "/wordled/index.html",
-    "main.924f7e93.css.map": "/wordled/static/css/main.924f7e93.css.map",
-    "main.f758d5a9.js.map": "/wordled/static/js/main.f758d5a9.js.map"
+    "main.4f271eb3.css.map": "/wordled/static/css/main.4f271eb3.css.map",
+    "main.450a325d.js.map": "/wordled/static/js/main.450a325d.js.map"
   },
   "entrypoints": [
-    "static/css/main.924f7e93.css",
-    "static/js/main.f758d5a9.js"
+    "static/css/main.4f271eb3.css",
+    "static/js/main.450a325d.js"
   ]
 }
