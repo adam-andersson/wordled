@@ -1,0 +1,15 @@
+$breakpoint-tablet: 500px;
+
+.keyboard__button {
+    @media (min-width: $breakpoint-tablet) {
+        width: 1.5em;
+    }
+    width: 100%;
+    min-height: 3em;
+    border: none;
+    border-radius: 0.2em;
+    color: white;
+    text-align: center;
+    font-size: calc(10px + 1.4vmin);
+    padding: inherit;
+}

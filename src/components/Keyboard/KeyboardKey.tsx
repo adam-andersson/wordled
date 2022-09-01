@@ -3,6 +3,7 @@ import {ArrowRightSquare, Backspace} from 'react-bootstrap-icons'
 import { MAX_KEYBOARD_ROW_LENGTH } from '../../constants/keyboard-keys'
 import { getBoxColor } from '../../helpers/get-box-color'
 import { CharStatus } from '../../lib/word-logic'
+import './Keyboard.scss'
 
 type Props = {
     keyValue: string,
@@ -23,10 +24,8 @@ const KeyboardKey: FC<Props> = ({
 
 	const maxWidth = `${Math.floor(100/MAX_KEYBOARD_ROW_LENGTH - 1) - 1}vw`
 
-	console.log(maxWidth)
-
 	return (
-		<button style={{width: '1.5em', maxWidth: maxWidth, minHeight: '3em', backgroundColor, border: 'none', borderRadius: '0.2em', color: 'white', textAlign: 'center', fontSize: 'calc(10px + 1.2vmin)', padding: 'inherit'}} onClick={() => onClick(keyValue)}>
+		<button className="keyboard__button" style={{backgroundColor, maxWidth}} onClick={() => onClick(keyValue)}>
 			{keySymbol}
 		</button>
 	)
