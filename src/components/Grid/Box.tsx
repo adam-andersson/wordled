@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { getBoxColor } from '../../helpers/get-box-color'
 import { CharStatus } from '../../lib/word-logic'
+import './Grid.scss'
 
 const Box: FC<{
   character?: string
@@ -11,22 +12,7 @@ const Box: FC<{
 	const backgroundColor = getBoxColor(status, isSelectedBox, isActiveGuessInvalid)
 	
 	return (
-		<div
-			style={{
-				width: 'clamp(1.5rem, 15vmin , 3.5rem)',
-				height: 'clamp(1.5rem, 15vmin , 3.5rem)',
-				backgroundColor,
-				marginRight: '0.4vmin',
-				marginLeft: '0.4vmin',
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'center',
-				borderRadius: 'clamp(0.2rem, 2vmin, 0.5rem)',
-				fontSize: '25px',
-				position: 'relative'
-			}}
-		>
+		<div className="grid__box" style={{ backgroundColor }}>
 			{character?.toUpperCase()}
 			<span style={{position: 'absolute', bottom: '8px'}}>{isSelectedBox && '_'}</span>
 			
