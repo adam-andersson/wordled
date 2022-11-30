@@ -1,6 +1,7 @@
 # wordled.
 
 A wordle remake, currently only supporting the English language.
+Play it here: https://adam-andersson.github.io/wordled/
 
 ## Future developments
 - Add algorithm for optimal guess.
